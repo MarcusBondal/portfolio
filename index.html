@@ -1,33 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Min Portfolio</title>
-    <style>
 
-        *{
+    <style>
+        * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
-
         }
 
-        img{
-            width: 30%;
-            display: block;
+        body {
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+
+        .boks {
+            background-color: white;
+            width: 800px;
             margin: auto;
+            padding: 40px;
+            border-radius: 20px;
         }
+
         h1 {
             text-align: center;
+            margin-bottom: 30px;
         }
-        
+
+        img {
+            width: 40%;
+            display: block;
+            margin: auto;
+            border-radius: 15px;
+        }
+
+        .prosjekter {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .prosjekter h2 {
+            margin-bottom: 20px;
+        }
+
+        .prosjekter p {
+            margin: 15px;
+            font-size: 20px;
+        }
+
+        a {
+            color: royalblue;
+        }
     </style>
 </head>
+
 <body>
-    <h1>Velkommen til min IT-side!</h1>
-    <img src="Om meg Marcus/bilder/barndomsbilde-smoothie.jpeg" alt="">
-    <p>Jeg har laget en <a target="_blank" href="jsquiz.html">Quiz</a></p>
-    
+
+    <main class="boks">
+
+        <h1>Velkommen til min IT-side!</h1>
+
+        <img src="Om meg Marcus/bilder/barndomsbilde-smoothie.jpeg" alt="Bilde av Marcus">
+
+        <section class="prosjekter">
+            <h2>Mine prosjekter</h2>
+
+            <p>
+                Jeg har laget en
+                <a target="_blank" href="jsquiz.html">Quiz</a>
+            </p>
+
+            <p>
+                Jeg har laget en
+                <a target="_blank" href="Om meg Marcus/hjem.html">Om Meg-side</a>
+            </p>
+        </section>
+
+    </main>
+
 </body>
 </html>
