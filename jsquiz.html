@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: rgb(221, 63, 87);
+        padding: 20px;
+      }
+
+      .overskrift {
+        width: fit-content;
+        background-color: white;
+        padding: 40px;
+        border-radius: 60px;
+        margin-bottom: 30px;
+      }
+
+      .overskrift h1 {
+        font-size: 45px;
+      }
+
+      .quiz {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+        margin-top: 20px;
+      }
+
+      .spørsmål {
+        background-color: antiquewhite;
+        padding: 40px;
+        border-radius: 30px;
+      }
+
+      .spørsmål h2 {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 20px;
+        border-bottom: 4px solid black;
+      }
+
+      .svar {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+      }
+
+      button {
+        background-color: aqua;
+        border: 3px solid black;
+        border-radius: 15px;
+        width: 150px;
+        height: 130px;
+        font-size: 24px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="overskrift">
+      <h1>JS Quiz!</h1>
+      <p id="poeng">Poeng: 0</p>
+      <p id="resultat"></p>
+    </header>
+
+    <main class="quiz">
+
+      <section class="spørsmål">
+        <h2>1. Hvilket dyr kan ikke hoppe?</h2>
+
+        <div class="svar">
+          <button onclick="sjekkSvar(this, true)">Elefant</button>
+          <button onclick="sjekkSvar(this, false)">Tiger</button>
+          <button onclick="sjekkSvar(this, false)">Kenguru</button>
+        </div>
+      </section>
+
+      <section class="spørsmål">
+        <h2>2. Hva er det største organet i menneskekroppen?</h2>
+
+        <div class="svar">
+          <button onclick="sjekkSvar(this, false)">Hjertet</button>
+          <button onclick="sjekkSvar(this, true)">Huden</button>
+          <button onclick="sjekkSvar(this, false)">Leveren</button>
+        </div>
+      </section>
+
+      <section class="spørsmål">
+        <h2>3. Hvilket av disse landene har flest øyer?</h2>
+
+        <div class="svar">
+          <button onclick="sjekkSvar(this, false)">Norge</button>
+          <button onclick="sjekkSvar(this, true)">Sverige</button>
+          <button onclick="sjekkSvar(this, false)">Indonesia</button>
+        </div>
+      </section>
+
+      <section class="spørsmål">
+        <h2>4. Hvor mange hjerter har en blekksprut?</h2>
+
+        <div class="svar">
+          <button onclick="sjekkSvar(this, false)">1</button>
+          <button onclick="sjekkSvar(this, false)">2</button>
+          <button onclick="sjekkSvar(this, true)">3</button>
+        </div>
+      </section>
+
+    </main>
+
+    <script>
+      let poeng = 0;
+      let antallSvar = 0;
+
+      function sjekkSvar(knapp, riktig) {
+
+        if (riktig) {
+          knapp.style.backgroundColor = "lightgreen";
+
+          poeng = poeng + 1;
+
+          document.getElementById("poeng").textContent =
+            "Poeng: " + poeng;
+        } else {
+          knapp.style.backgroundColor = "red";
+        }
+
+        let knapper = knapp.parentElement.querySelectorAll("button");
+
+        knapper.forEach(function (enKnapp) {
+          enKnapp.disabled = true;
+        });
+
+        antallSvar = antallSvar + 1;
+
+        if (antallSvar === 4) {
+          document.getElementById("resultat").textContent =
+            "Du fikk " + poeng + " av 4 riktige!";
+        }
+      }
+    </script>
+
+  </body>
+</html>
